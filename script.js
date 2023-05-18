@@ -1,5 +1,15 @@
 var todaysDate = document.getElementById("currentDay");
-var saveButton = document.getElementById("save-button");
+var saveButton = document.getElementById("save-button8");
+var saveButton = document.getElementById("save-button9");
+var saveButton = document.getElementById("save-button10");
+var saveButton = document.getElementById("save-button11");
+var saveButton = document.getElementById("save-button12");
+var saveButton = document.getElementById("save-button13");
+var saveButton = document.getElementById("save-button14");
+var saveButton = document.getElementById("save-button15");
+var saveButton = document.getElementById("save-button16");
+var saveButton = document.getElementById("save-button17");
+var saveButton = document.getElementById("save-button18");
 var hour8Box = document.getElementById("hour-8");
 var hour9Box = document.getElementById("hour-9");
 var hour10Box = document.getElementById("hour-10");
@@ -15,7 +25,7 @@ var textBox8 = document.getElementById("textBox8");
 var textBox9 = document.getElementById("textBox9");
 var textBox10 = document.getElementById("textBox10");
 var textBox11 = document.getElementById("textBox11");
-var textBoxNoon = document.getElementById("textBox12");
+var textBox12 = document.getElementById("textBox12");
 var textBox13 = document.getElementById("textBox13");
 var textBox14 = document.getElementById("textBox14");
 var textBox15 = document.getElementById("textBox15");
@@ -24,6 +34,30 @@ var textBox17 = document.getElementById("textBox17");
 var textBox18 = document.getElementById("textBox18");
 
 
+textBox8.value = localStorage.getItem("typedText");
+textBox9.value = localStorage.getItem("typedText");
+textBox10.value = localStorage.getItem("typedText");
+textBox11.value = localStorage.getItem("typedText");
+textBox12.value = localStorage.getItem("typedText");
+textBox13.value = localStorage.getItem("typedText");
+textBox14.value = localStorage.getItem("typedText");
+textBox15.value = localStorage.getItem("typedText");
+textBox16.value = localStorage.getItem("typedText");
+textBox17.value = localStorage.getItem("typedText");
+textBox18.value = localStorage.getItem("typedText");
+
+
+var currentDay = document.getElementById("currentDay");
+// Updates the time live without need for refrshing.
+function updateDateTime() {
+  currentDay.textContent = dayjs().format('MM-DD-YYYY HH:mm:ss');
+}
+
+
+updateDateTime();
+
+// sets time to update by 1 second
+setInterval(updateDateTime, 1000);
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
@@ -51,21 +85,42 @@ $(function () {
 
   
 });
-saveButton.addEventListener("click", function (event){
-  event.preventDefault
-  const typedText = event.target.value;
-  textBox8.value = localStorage.getItem("typedText");
-   localStorage.setItem("typedText", typedText);
-  console.log(typedText);
-}
-);
 
-textBox8.value = localStorage.getItem("typedText");
-textBox8.addEventListener("input", function(event) {
-  const typedText = event.target.value;
-  textBox8.value = localStorage.getItem("typedText");
-   localStorage.setItem('typedText', typedText); 
+// $("#textBox8").siblings()
 
+
+// saveButton.addEventListener("click", function (event){
+//   event.preventDefault
+//   const typedText = textBox8.value;
+//   console.log(textBox8.value);
+//   // textBox8.value = localStorage.getItem("typedText");
+//    localStorage.setItem("typedText", typedText);
+//   console.log(typedText);
+// }
+// );
+
+
+for (var i = 8; i <= 18; i++) {
+  var textBox = $("#text-box" + i);
+  var saveButton = $("#save-button" + i);
+
+  // Add event listener to each save button
+  saveButton.on("click", function(event) {
+    event.preventDefault();
+    
+    var typedText = textBox.value();
+    console.log(textBox.value());
+    localStorage.setItem("typedText", typedText);
     console.log(typedText);
+  });
+}
 
-})
+// textBox8.value = localStorage.getItem("typedText");
+// textBox8.addEventListener("input", function(event) {
+//   const typedText = event.target.value;
+//   textBox8.value = localStorage.getItem("typedText");
+//    localStorage.setItem('typedText', typedText); 
+
+//     console.log(typedText);
+
+// })
