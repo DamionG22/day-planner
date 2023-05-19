@@ -54,27 +54,27 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 // Function to update hour block color based on time of day
-function updateClassBasedOnTime() {
-  var currentTime = new Date();
-  var currentHour = currentTime.getHours();
+// function updateClassBasedOnTime() {
+//   var currentTime = new Date();
+//   var currentHour = currentTime.getHours();
 
-  if (currentHour >= 15 && currentHour < 23) {
-    hourBox14.classList.add("past");
-    hourBox14.classList.remove("present","future");
-  } else if (currentHour === 14) {
-    hourBox14.classList.add("present");
-    hourBox14.classList.remove("past","future");
-  } else {
-    hourBox14.classList.add("future");
-    hourBox14.classList.remove("present","past");
-  }
-}
+//   if (currentHour >= 15 && currentHour < 23) {
+//     hourBox14.classList.add("past");
+//     hourBox14.classList.remove("present","future");
+//   } else if (currentHour === 14) {
+//     hourBox14.classList.add("present");
+//     hourBox14.classList.remove("past","future");
+//   } else {
+//     hourBox14.classList.add("future");
+//     hourBox14.classList.remove("present","past");
+//   }
+// }
 
-// Initial class update
-updateClassBasedOnTime();
+// // Initial class update
+// updateClassBasedOnTime();
 
-// Update class every minute
-setInterval(updateClassBasedOnTime, 60000);
+// // Update class every minute
+// setInterval(updateClassBasedOnTime, 60000);
 
 
 // Event Listeners for each save button to save text to local storage.
